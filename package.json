@@ -1,0 +1,17 @@
+{
+  "name": "extentiacafe",
+  "version": "1.0.0",
+  "description": "extentia cafe assignment backend",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "author": "Popat Kharat",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "1.15.1",
+    "express": "4.13.4",   
+    "node-gcm": "0.14.2",
+    "start": "^4.0.1"
+  }
+}
