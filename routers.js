@@ -3,14 +3,16 @@ var gcmService = require('./gcm-service.js');
 var routers = (function () {
 
     function sendNotification(req, res) {
-        console.log(req.body)
-        if (req.body.tokens && req.body.message) {
-            gcmService.sendNotificationByTokens(req.body.tokens, { message: req.body.message, title: req.body.title },
+        let reqBody = req.body;
+        if (reqBody.tokens && reqBody.message) {
+            console.log(reqBody)
+            gcmService.sendNotificationByTokens(reqBody.tokens, { message: reqBody.message, title: reqBody.title },
                 (error, responseObj) => {
-                    res.send(error, responseObj);
+                    res.setHeader('Content-Type', 'application/json');
+                    res.send(JSON.stringify(responseObj));
                 });
         } else {
-            res.send({status:'ERROR',message:"Wrong request params"});
+            res.send({ status: 'ERROR', message: "Wrong request params" });
         }
     }
 
@@ -19,4 +21,4 @@ var routers = (function () {
     };
 
 })();
-module.exports = routers; 
+module.exports = routers;

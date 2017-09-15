@@ -11,7 +11,7 @@ var gcmService = (function () {
 
         message.addNotification('title', msgObj.title);
         message.addNotification('message', msgObj.message);
-
+        
         sender.send(message, {
             registrationTokens: regTokens
         }, function (err, response) {
